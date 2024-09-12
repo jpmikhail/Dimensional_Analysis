@@ -1,2 +1,8 @@
-# Dimensional_Analysis
- Python class for performing dimensional analysis
+# Dimensional Analysis
+This repository includes (1) `Dimension.py`, defining a Python class for performing dimensional analysis and (2) `setup.py`, a script to serve as an example for usage of the class, including some common physical quantities and constants.
+
+The primary utility of the `Dimension` class is to perform mathematical operations on physical quantities and check whether different units have the same dimensions. "Dimension" here means the representation of a given physical quantity using only the fundamental dimensions of *Mass*, *Length*, *Time*, *Temperature*, *Electric Current*, *Luminous Intensity*, and *Quantity*. Fundamental dimensions may be added to or subtracted from this list according to individual need.
+
+The `Dimension` class allows physical quantities to be either built up from mathematical operations on other quantities (e.g., `Force = Mass*Acceleration`) or defined directly as a list of powers of fundamental dimensions (e.g., `Force = Mass*Length/Time**2`, or `[1 1 -2 0 0 0 0]` in vector form). Allowable mathematical operations are multiplication (adding the powers of the fundamental dimensions), division (subtracting the powers), addition/subtraction (not changing the powers, but checking for consistency), and raising to a power (multiplying powers of the fundamental dimensions). Additionally, one may check that two given physical quantities are consistent using the `Dimension.consistent` method.
+
+Finally, the `Dimension` class supports operator overloading. This means one may, e.g., multiply two different `Dimension` instances using the asterisk symbol, `*`, without having to call the `Dimension.multiply` method. Consistency or inconsistency can be checked using `==` or `!=`, respectively. Please see `setup.py` for more examples.
